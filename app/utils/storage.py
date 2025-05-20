@@ -1,12 +1,13 @@
 import json
 import os
 from typing import List, Dict, Any
+from ..config import settings
 
 class JSONStorage:
     """Clase para manejar el almacenamiento en JSON"""
     
-    def __init__(self, file_path: str):
-        self.file_path = file_path
+    def __init__(self, file_path: str = None):
+        self.file_path = file_path or settings.STORAGE_FILE
         self._ensure_file_exists()
     
     def _ensure_file_exists(self):
